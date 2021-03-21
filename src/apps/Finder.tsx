@@ -1,5 +1,5 @@
 import React from "react";
-import {Box} from "@chakra-ui/react";
+import {Text} from "@chakra-ui/react";
 
 interface Props {
   onClose: VoidFunction;
@@ -7,10 +7,10 @@ interface Props {
 
 const Finder: React.FC<Props> = () => {
   return (
-    <Box>
+    <Text padding={2}>
       Here you will find my contact information, not ready yet but you can check the links on the
       navbar 👆
-    </Box>
+    </Text>
   );
 };
 

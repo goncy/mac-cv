@@ -1,5 +1,5 @@
 import React from "react";
-import {Box} from "@chakra-ui/react";
+import {Text} from "@chakra-ui/react";
 
 interface Props {
   onClose: VoidFunction;
@@ -7,10 +7,10 @@ interface Props {
 
 const VsCode: React.FC<Props> = () => {
   return (
-    <Box>
+    <Text padding={2}>
       Here you will find the code for cv.html and you will be able to play around with its code. Not
       ready yet 😞
-    </Box>
+    </Text>
   );
 };
 
