@@ -19,9 +19,10 @@ const Desktop: React.FC<Props> = ({apps, onOpenApp}) => {
           cursor="pointer"
           padding={1}
           spacing={1}
-          tabIndex={1}
+          tabIndex={0}
           userSelect="none"
           onDoubleClick={() => onOpenApp(app)}
+          onKeyPress={(e) => ["Enter", "Space"].includes(e.code) && onOpenApp(app)}
           onTouchStart={() => onOpenApp(app)}
         >
           <Box

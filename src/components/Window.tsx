@@ -28,7 +28,6 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
 
   function handleDragHandleUp() {
     toggleIsDragging(false);
-    toggleCanDrag(false);
   }
 
   return (
@@ -47,24 +46,17 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
         boxShadow="xl"
         maxWidth={640}
       >
-        <Stack
-          alignItems="center"
-          direction="row"
-          padding={2}
-          position="relative"
-          onPointerDown={handleDragHandleDown}
-          onPointerEnter={handleDragHandleEnter}
-          onPointerLeave={handleDragHandleLeave}
-          onPointerUp={handleDragHandleUp}
-        >
+        <Stack alignItems="center" direction="row" padding={2} position="relative">
           <Stack alignItems="center" direction="row" position="absolute">
             <Box
               backgroundColor="red.500"
               borderRadius={9999}
               cursor="pointer"
               height={3}
+              tabIndex={0}
               width={3}
               onClick={onClose}
+              onKeyPress={(e) => ["Enter", "Space"].includes(e.code) && onClose()}
             />
             <Box
               backgroundColor="yellow.500"
@@ -81,7 +73,17 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
               width={3}
             />
           </Stack>
-          <Text color="gray.400" flex={1} fontWeight="bold" textAlign="center">
+          <Text
+            color="gray.400"
+            flex={1}
+            fontWeight="bold"
+            textAlign="center"
+            userSelect="none"
+            onPointerDown={handleDragHandleDown}
+            onPointerEnter={handleDragHandleEnter}
+            onPointerLeave={handleDragHandleLeave}
+            onPointerUp={handleDragHandleUp}
+          >
             {title}
           </Text>
         </Stack>
