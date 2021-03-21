@@ -9,6 +9,11 @@ interface Props {
 }
 
 const Desktop: React.FC<Props> = ({apps, onOpenApp}) => {
+  function handleOpenApp(app: Application, element: HTMLDivElement) {
+    onOpenApp(app);
+    element.focus();
+  }
+
   return (
     <Grid gap={4} gridTemplateColumns="repeat(auto-fill, minmax(92px, 1fr))" padding={4}>
       {apps.map((app) => (
@@ -21,9 +26,11 @@ const Desktop: React.FC<Props> = ({apps, onOpenApp}) => {
           spacing={1}
           tabIndex={0}
           userSelect="none"
-          onDoubleClick={() => onOpenApp(app)}
-          onKeyPress={(e) => ["Enter", "Space"].includes(e.code) && onOpenApp(app)}
-          onTouchStart={() => onOpenApp(app)}
+          onDoubleClick={(e) => handleOpenApp(app, e.currentTarget)}
+          onKeyPress={(e) =>
+            ["Enter", "Space"].includes(e.code) && handleOpenApp(app, e.currentTarget)
+          }
+          onTouchStart={(e) => handleOpenApp(app, e.currentTarget)}
         >
           <Box
             borderRadius="sm"
