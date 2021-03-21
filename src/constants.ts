@@ -4,7 +4,7 @@ import finderIcon from "./assets/icons/finder.png";
 import vscodeIcon from "./assets/icons/vscode.png";
 import chromeIcon from "./assets/icons/chrome.png";
 import FinderApp from "./apps/Finder";
-import CvApp from "./apps/Cv";
+import ChromeApp from "./apps/Chrome";
 import ReadmeApp from "./apps/Readme";
 import VsCodeApp from "./apps/VsCode";
 
@@ -60,9 +60,9 @@ export const APPS: Application[] = [
     ],
   },
   {
-    id: "cv",
+    id: "chrome",
     icon: chromeIcon,
-    component: CvApp,
+    component: ChromeApp,
     name: "Google Chrome",
     label: "cv.html",
     actions: [],

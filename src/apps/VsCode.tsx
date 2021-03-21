@@ -6,7 +6,12 @@ interface Props {
 }
 
 const VsCode: React.FC<Props> = () => {
-  return <Box>VsCode</Box>;
+  return (
+    <Box>
+      Here you will find the code for cv.html and you will be able to play around with its code. Not
+      ready yet 😞
+    </Box>
+  );
 };
 
 export default VsCode;
