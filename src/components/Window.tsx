@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) => {
-  const [canDrag, toggleCanDrag] = React.useState(true);
+  const [canDrag, toggleCanDrag] = React.useState(false);
   const [isDragging, toggleIsDragging] = React.useState(false);
 
   function handleDragHandleEnter() {
