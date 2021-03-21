@@ -33,10 +33,13 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
   return (
     <Box maxWidth={{base: "90vw", md: 640}}>
       <motion.div
+        animate={{scale: 1}}
         drag={canDrag}
         dragConstraints={dragConstraints}
         dragElastic={false}
         dragMomentum={false}
+        exit={{scale: 0}}
+        initial={{scale: 0}}
         style={{width: "100%"}}
       >
         <Stack

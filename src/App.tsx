@@ -1,6 +1,7 @@
 import React from "react";
 import {Stack} from "@chakra-ui/react";
 import {Switch, Route, useHistory, useLocation} from "react-router-dom";
+import {AnimatePresence} from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Desktop from "./components/Desktop";
@@ -31,25 +32,28 @@ const App: React.FC = () => {
       <Navbar app={selectedApp} />
       <Stack ref={dragZone} height="100%">
         <Desktop apps={APPS} onOpenApp={handleOpenApp} />
-        <Switch>
-          {APPS.map((app) => (
-            <Route
-              key={app.id}
-              exact
-              path={`/${app.id}`}
-              render={() => (
-                <Window
-                  key={app.id}
-                  dragConstraints={dragZone}
-                  title={`${app.name}${app.label ? ` - ${app.label}` : ``}`}
-                  onClose={handleCloseApp}
-                >
-                  {React.createElement(app.component)}
-                </Window>
-              )}
-            />
-          ))}
-        </Switch>
+        <AnimatePresence exitBeforeEnter>
+          <Switch key={location.pathname} location={location}>
+            {APPS.map((app) => (
+              <Route
+                key={app.id}
+                exact
+                path={`/${app.id}`}
+                render={(props) => (
+                  <Window
+                    key={app.id}
+                    dragConstraints={dragZone}
+                    title={`${app.name}${app.label ? ` - ${app.label}` : ``}`}
+                    onClose={handleCloseApp}
+                    {...props}
+                  >
+                    {React.createElement(app.component)}
+                  </Window>
+                )}
+              />
+            ))}
+          </Switch>
+        </AnimatePresence>
       </Stack>
     </Stack>
   );
