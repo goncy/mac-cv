@@ -22,6 +22,7 @@ const Desktop: React.FC<Props> = ({apps, onOpenApp}) => {
           tabIndex={1}
           userSelect="none"
           onDoubleClick={() => onOpenApp(app)}
+          onTouchStart={() => onOpenApp(app)}
         >
           <Box
             borderRadius="sm"

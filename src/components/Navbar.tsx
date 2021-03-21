@@ -16,6 +16,7 @@ const Navbar: React.FC<Props> = ({app}) => {
       direction="row"
       height="28px"
       justifyContent="flex-start"
+      overflowX="auto"
       paddingX={4}
       spacing={6}
     >
