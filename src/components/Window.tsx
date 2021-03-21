@@ -36,7 +36,7 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
       dragConstraints={dragConstraints}
       dragElastic={false}
       dragMomentum={false}
-      style={{width: "100%", maxWidth: 640}}
+      style={{width: "fit-content"}}
     >
       <Stack
         backgroundColor="gray.700"
@@ -44,7 +44,7 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
         borderRadius="md"
         borderWidth={1}
         boxShadow="xl"
-        maxWidth={640}
+        maxWidth={{base: "90vw", md: 640}}
       >
         <Stack alignItems="center" direction="row" padding={2} position="relative">
           <Stack alignItems="center" direction="row" position="absolute">
