@@ -52,12 +52,7 @@ export const APPS: Application[] = [
     icon: vscodeIcon,
     component: VsCodeApp,
     name: "Visual Studio Code",
-    actions: [
-      {
-        name: "CV",
-        link: "/cv",
-      },
-    ],
+    actions: [],
   },
   {
     id: "chrome",
