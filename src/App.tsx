@@ -41,7 +41,7 @@ const App: React.FC = () => {
                 <Window
                   key={app.id}
                   dragConstraints={dragZone}
-                  title={app.name}
+                  title={`${app.name}${app.label ? ` - ${app.label}` : ``}`}
                   onClose={handleCloseApp}
                 >
                   {React.createElement(app.component)}
