@@ -1,7 +1,6 @@
 import React from "react";
 import {Stack} from "@chakra-ui/react";
 import {Switch, Route, useHistory, useLocation} from "react-router-dom";
-import {motion} from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Desktop from "./components/Desktop";
@@ -12,7 +11,7 @@ import {APPS} from "./constants";
 const App: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
-  const container = React.useRef(null);
+  const dragZone = React.useRef(null);
   const selectedApp = React.useMemo(() => {
     const [, route] = location.pathname.split("/");
 
@@ -30,7 +29,7 @@ const App: React.FC = () => {
   return (
     <Stack height="100%" position="relative" spacing={0}>
       <Navbar app={selectedApp} />
-      <Stack ref={container} height="100%">
+      <Stack ref={dragZone} height="100%">
         <Desktop apps={APPS} onOpenApp={handleOpenApp} />
         <Switch>
           {APPS.map((app) => (
@@ -39,18 +38,14 @@ const App: React.FC = () => {
               exact
               path={`/${app.id}`}
               render={() => (
-                <motion.div
+                <Window
                   key={app.id}
-                  drag
-                  dragConstraints={container}
-                  dragElastic={false}
-                  dragMomentum={false}
-                  style={{width: "100%", maxWidth: 640}}
+                  dragConstraints={dragZone}
+                  title={app.name}
+                  onClose={handleCloseApp}
                 >
-                  <Window title={app.name} onClose={handleCloseApp}>
-                    {React.createElement(app.component)}
-                  </Window>
-                </motion.div>
+                  {React.createElement(app.component)}
+                </Window>
               )}
             />
           ))}
