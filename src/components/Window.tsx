@@ -48,8 +48,18 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
           borderRadius="md"
           borderWidth={1}
           boxShadow="xl"
+          spacing={0}
         >
-          <Stack alignItems="center" direction="row" padding={2} position="relative">
+          <Stack
+            alignItems="center"
+            direction="row"
+            padding={2}
+            position="relative"
+            onPointerDown={handleDragHandleDown}
+            onPointerEnter={handleDragHandleEnter}
+            onPointerLeave={handleDragHandleLeave}
+            onPointerUp={handleDragHandleUp}
+          >
             <Stack alignItems="center" direction="row" position="absolute">
               <Box
                 backgroundColor="red.500"
@@ -76,17 +86,7 @@ const Window: React.FC<Props> = ({onClose, dragConstraints, title, children}) =>
                 width={3}
               />
             </Stack>
-            <Text
-              color="gray.400"
-              flex={1}
-              fontWeight="bold"
-              textAlign="center"
-              userSelect="none"
-              onPointerDown={handleDragHandleDown}
-              onPointerEnter={handleDragHandleEnter}
-              onPointerLeave={handleDragHandleLeave}
-              onPointerUp={handleDragHandleUp}
-            >
+            <Text color="gray.400" flex={1} fontWeight="bold" textAlign="center" userSelect="none">
               {title}
             </Text>
           </Stack>
