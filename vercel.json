@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "source": "/src/assets/(.*)",
+      "src": "/src/assets/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31556952, immutable"
       }
