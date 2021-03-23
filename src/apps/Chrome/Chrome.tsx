@@ -22,7 +22,7 @@ const Chrome: React.FC<Props> = () => {
 
   return (
     <Box
-      bgGradient="linear(to-l, #7928CA, #FF0080)"
+      bgGradient="linear(to-l, #9F3282, #F91460)"
       borderBottomRadius="md"
       color="gray.700"
       padding={4}
