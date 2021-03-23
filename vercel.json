@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/src/assets/:asset*",
-      "destination": "/src/assets/:asset*"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
+    },
+    {
+      "source": "/src/assets/:asset*",
+      "destination": "/src/assets/:asset*"
     }
   ]
 }
