@@ -1,11 +1,13 @@
 {
-  "rewrites": [
+  "routes": [
     {
       "source": "/src/assets/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31556952, immutable"
       }
-    },
+    }
+  ],
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
